@@ -30,53 +30,54 @@ public class Enemy : MonoBehaviour
 	[SerializeField] public Vector3 _rightSpawnOffset = Vector3.zero;
 	[SerializeField] public Vector3 _forwardSpawnOffset = Vector3.zero;
 	[SerializeField] private AnimationCurve _movementAnimation;
-    private Vector3 _startPosition;
+	private Vector3 _startPosition;
 	private Vector3 _endPosition;
 
-    [Header("Visuals")]
-    [SerializeField] private GameObject _spawnOnDeath = null;
-    [SerializeField] private SpriteRenderer _sprite;
+	[Header("Velocity Movement")]
+	[SerializeField] private bool enableVelocity = false;
+	[SerializeField] private AnimationCurve _velocityCurve;
+	[SerializeField] private float _maxVelocity;
+	private float _travelDistance;
+	private float _moveIntervalDist; // How far in units an Enemy has to move
+
+	[Header("Visuals")]
+	[SerializeField] private GameObject _spawnOnDeath = null;
+	[SerializeField] private SpriteRenderer _sprite;
 	[SerializeField] private AnimatorOverrideController frontOverride;
 	[SerializeField] private AnimatorOverrideController sideOverride;
 	private Animator _anim;
 
-    [Header("Tutorial")]
-    [SerializeField] private GameObject _tutorialIndicatorPrefab; // the object to spawn to show timings during the tutorial
-    private GameObject _tutorialIndicator; // where the instance of the tutorial indicator is stored
-    private bool _tutorialMode = false; // when true, show a red flash for the correct timing
+	[Header("Tutorial")]
+	[SerializeField] private GameObject _tutorialIndicatorPrefab; // the object to spawn to show timings during the tutorial
+	private GameObject _tutorialIndicator; // where the instance of the tutorial indicator is stored
+	private bool _tutorialMode = false; // when true, show a red flash for the correct timing
 
-    [Header("SFX")]
-    [SerializeField] private AudioClipData _hitClip; // the sound this enemy plays if it attacks the player
-    [SerializeField] private AudioClipData _deathClip; // the sound this enemy plays if it is killed
-    [SerializeField] private AudioClipData _guideClip; // the sound that plays at the perfect hit timing
-    private SFXData _deathSFX = null;
-    private SFXData _hitSFX = null;
-    private SFXData _guideSFX = null;
+	[Header("SFX")]
+	[SerializeField] private AudioClipData _hitClip; // the sound this enemy plays if it attacks the player
+	[SerializeField] private AudioClipData _deathClip; // the sound this enemy plays if it is killed
+	[SerializeField] private AudioClipData _guideClip; // the sound that plays at the perfect hit timing
+	private SFXData _deathSFX = null;
+	private SFXData _hitSFX = null;
+	private SFXData _guideSFX = null;
 
-    // Coroutines
-    private Coroutine _moveCoroutine = null;
-    private Coroutine _attackCoroutine = null;
+	// Coroutines
+	private Coroutine _moveCoroutine = null;
+	private Coroutine _attackCoroutine = null;
 
-    // Beat Tracking
-    private float _currentBeat;
+	// Beat Tracking
+	private float _currentBeat;
 	private float _startBeat;
 	private float _earlyWindow; // how many beats the player can be early
 	private float _lateWindow; // how many beats the player can be late
 
 	private StageDirection _direction;
 
-	// Accel
-	//private AnimationCurve _accelCurve;
-	//private float _maxAccel;
-	//private float _travelDistance;
-	//private float _moveIntervalDist; // How far in units an Enemy has to move
-
 	private void Awake()
 	{
 		if (_deathClip != null) _deathSFX = new SFXData(_deathClip, StageDirection.FORWARD);
 		if (_hitClip   != null) _hitSFX   = new SFXData(_hitClip  , StageDirection.FORWARD);
-        if (_guideClip != null) _guideSFX = new SFXData(_guideClip, StageDirection.FORWARD);
-        _anim = GetComponent<Animator>();
+		if (_guideClip != null) _guideSFX = new SFXData(_guideClip, StageDirection.FORWARD);
+		_anim = GetComponent<Animator>();
 		_beats = new List<EnemyBeat>(); // just so it doesn't error out when the game starts
 	}
 
@@ -92,18 +93,16 @@ public class Enemy : MonoBehaviour
 
 		_startPosition = startPos;
 		_endPosition = endPos;
-		//_travelDistance = Vector3.Distance(_startPosition, _endPosition);
-		//_moveIntervalDist = _travelDistance / _setBeats.Count;
 
 		if(_moveCoroutine != null) StopCoroutine(_moveCoroutine);
 
-        if (_attackCoroutine != null)
-        {
-            StopCoroutine(_attackCoroutine);
-            _attackCoroutine = null;
-        }
+		if (_attackCoroutine != null)
+		{
+			StopCoroutine(_attackCoroutine);
+			_attackCoroutine = null;
+		}
 
-        transform.position = startPos;
+		transform.position = startPos;
 
 		float beatDiff = _hitWindow * (float)Conductor.CurrentBPS; // what percentage of a beat the hit window falls within
 		_earlyWindow = (_hitTime + _startBeat) - beatDiff;
@@ -143,8 +142,16 @@ public class Enemy : MonoBehaviour
 		_currentBeat = sb;
 		CheckBeatAction();
 
-        _moveCoroutine = StartCoroutine(SimpleMove());
-    }
+		if (enableVelocity)
+		{
+			_travelDistance = Vector3.Distance(_startPosition, _endPosition);
+			_moveIntervalDist = _travelDistance / _setBeats.Length;
+		}
+		else
+		{
+			_moveCoroutine = StartCoroutine(SimpleMove());
+		}
+	}
 
 	void SetAnimDirection()
 	{
@@ -160,11 +167,11 @@ public class Enemy : MonoBehaviour
 			}
 		}
 		else // Configure for sides
-        {
-            _sprite.flipX = _direction == StageDirection.RIGHT;
-            if (sideOverride != null)
-            {
-                _anim.runtimeAnimatorController = sideOverride;
+		{
+			_sprite.flipX = _direction == StageDirection.RIGHT;
+			if (sideOverride != null)
+			{
+				_anim.runtimeAnimatorController = sideOverride;
 			}
 			else
 			{
@@ -260,6 +267,16 @@ public class Enemy : MonoBehaviour
 					_anim.SetTrigger("IsAttacking");
 				}
 
+				if (enableVelocity)
+				{
+					if (_moveCoroutine != null)
+					{
+						StopCoroutine(_moveCoroutine);
+					}
+
+					_moveCoroutine = StartCoroutine(MoveOnBeat(beatMoveTime));
+				}
+
 				// TODO: play the sound associated with this beat (ideally skipping partway into the sound based on time difference)
 				SFXData thisSound = new SFXData(b.Sound, _direction);
 				EventManager.EventTrigger(EventType.SFX, thisSound);
@@ -276,7 +293,7 @@ public class Enemy : MonoBehaviour
 		// if attack is coming up, start running the enumerator
 		if (_attackCoroutine == null && _currentBeat + 1 > _earlyWindow)
 		{
-            _attackCoroutine = StartCoroutine(CheckAttack());
+			_attackCoroutine = StartCoroutine(CheckAttack());
 
 			// if in tutorial, since the timing window's about to happen, show the tutorial indicator to give the player a warning
 			if (_tutorialMode)
@@ -291,78 +308,80 @@ public class Enemy : MonoBehaviour
 	{
 		float currentBeat;
 
-        // Wait until the enemy is about to attack
-        while (_earlyWindow >= (currentBeat = Conductor.SongBeat)) yield return null;
+		// Wait until the enemy is about to attack
+		while (_earlyWindow >= (currentBeat = Conductor.SongBeat)) yield return null;
 
-        Debug.Log($"Ready to attack on beat {currentBeat}");
+		Debug.Log($"Ready to attack on beat {currentBeat}");
 
-        EventManager.EventSubscribe(EventType.PARRY_INPUT, InputHandler);
-        manager._awaitingInput[_direction]++;
+		EventManager.EventSubscribe(EventType.PARRY_INPUT, InputHandler);
+		manager._awaitingInput[_direction]++;
 
 		if (_tutorialMode && _guideSFX != null)
 		{
 			// Wait until the perfect timing in the tutorial to play a sound to help with cueing
 			while ((_hitTime + _startBeat) >= (currentBeat = Conductor.SongBeat)) yield return null;
 
-            EventManager.EventTrigger(EventType.SFX, _guideSFX);
-        }
+			EventManager.EventTrigger(EventType.SFX, _guideSFX);
+		}
 
-        // Wait until it is too late to hit the enemy
-        while (_lateWindow >= (currentBeat = Conductor.SongBeat)) yield return null;
+		// Wait until it is too late to hit the enemy
+		while (_lateWindow >= (currentBeat = Conductor.SongBeat)) yield return null;
 
 		// And then attack
-        Debug.Log($"Enemy has dealt damage! Beat was ({Conductor.SongBeat}, {_startBeat}+{HitTime}->{_earlyWindow}|{_lateWindow})", this);
+		Debug.Log($"Enemy has dealt damage! Beat was ({Conductor.SongBeat}, {_startBeat}+{HitTime}->{_earlyWindow}|{_lateWindow})", this);
 
-        EventManager.EventUnsubscribe(EventType.BEAT, BeatHandler);
-        EventManager.EventUnsubscribe(EventType.PARRY_INPUT, InputHandler);
-        manager._awaitingInput[_direction]--;
+		EventManager.EventUnsubscribe(EventType.BEAT, BeatHandler);
+		EventManager.EventUnsubscribe(EventType.PARRY_INPUT, InputHandler);
+		manager._awaitingInput[_direction]--;
 
-        // Deal damage to player
-        EventManager.EventTrigger(EventType.PLAYER_HIT, _direction);
-        if (_hitSFX != null)
-        {
-            EventManager.EventTrigger(EventType.SFX, _hitSFX);
-        }
+		// Deal damage to player
+		EventManager.EventTrigger(EventType.PLAYER_HIT, _direction);
+		if (_hitSFX != null)
+		{
+			EventManager.EventTrigger(EventType.SFX, _hitSFX);
+		}
 
-        StartCoroutine(FadeOut());
+		StartCoroutine(FadeOut());
 
-        _attackCoroutine = null;
+		_attackCoroutine = null;
 
-        yield break;
-    }
+		yield break;
+	}
 
-	/*IEnumerator MoveOnBeat(float moveByBeat)
+	IEnumerator MoveOnBeat(float moveByBeat)
 	{
 		float distLeft = _moveIntervalDist * (_beats.Count - 1);
-		float moveIntervalTime = moveByBeat * Conductor.SecondsPerBeat; // How long in seconds an Enemy has to move (based off of how many seconds a beat is)
+		//float moveIntervalTime = moveByBeat * Conductor.SecondsPerBeat; // How long in seconds an Enemy has to move (based off of how many seconds a beat is)
 		float moveStartBeat = _currentBeat;
 
-		_accelCurve.ClearKeys();
+		/*_velocityCurve.ClearKeys();
 
 		Keyframe startKey = new Keyframe(0, 0);
 		startKey.weightedMode = WeightedMode.Both;
 		startKey.outWeight = 0.5f;
-		Keyframe middleKey = new Keyframe(moveIntervalTime * 0.33f, 0); // Appears to wait for a third of the move interval time
+		Keyframe middleKey = new Keyframe(1f / 3f, 0); // Appears to wait for a third of the move interval time
 		middleKey.weightedMode = WeightedMode.Both;
 		middleKey.inWeight = 0.5f;
 		middleKey.outWeight = 0.5f;
-		Keyframe endKey = new Keyframe(moveIntervalTime, _maxAccel);
+		Keyframe endKey = new Keyframe(1f, 1f);
 		endKey.weightedMode = WeightedMode.Both;
 		endKey.outWeight = 0.5f;
 
-		_accelCurve.AddKey(startKey);
-		_accelCurve.AddKey(middleKey);
-		_accelCurve.AddKey(endKey);
+		_velocityCurve.AddKey(startKey);
+		_velocityCurve.AddKey(middleKey);
+		_velocityCurve.AddKey(endKey);*/
 
 		while (Vector3.Distance(_endPosition, transform.position) > distLeft)
 		{
-			float velocity = _accelCurve.Evaluate(Conductor.RawSongBeat - moveStartBeat);
+			float velocity = Mathf.Min(_maxVelocity, _maxVelocity * _velocityCurve.Evaluate((Conductor.RawSongBeat - moveStartBeat) / moveByBeat));
 			transform.position = Vector3.MoveTowards(transform.position, _endPosition, 
 				(velocity * Time.deltaTime));
 
 			yield return null;
 		}
-	}*/
+
+		_moveCoroutine = null;
+	}
 
 	private IEnumerator SimpleMove()
 	{
