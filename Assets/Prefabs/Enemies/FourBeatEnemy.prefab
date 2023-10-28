@@ -103,7 +103,7 @@ MonoBehaviour:
   - BeatOffset: 0
     Sound:
       clip: {fileID: 8300000, guid: 1084ca21e922eac4ca949e445a7ec7b6, type: 3}
-      volume: 0.5
+      volume: 1
     MoveByBeat: 1
   - BeatOffset: 1
     Sound:
@@ -202,19 +202,13 @@ MonoBehaviour:
   _sprite: {fileID: 7300863750329005227}
   frontOverride: {fileID: 22100000, guid: 8fda149de7e41e34eb3f479970829dce, type: 2}
   sideOverride: {fileID: 22100000, guid: a7f7432ec16d7e44290d703f12e5e411, type: 2}
-  test:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   _tutorialIndicatorPrefab: {fileID: 7074025790841196831, guid: f3d59fc7264317a47857dd2afafcdec5, type: 3}
   _hitClip:
     clip: {fileID: 8300000, guid: c0f71ff8d0fe96842998e208c690cd8e, type: 3}
     volume: 0.6
   _deathClip:
-    clip: {fileID: 8300000, guid: fd2b1f13ca49db04d8f5d935d3f276f4, type: 3}
-    volume: 0.3
+    clip: {fileID: 8300000, guid: 75140d0de7bb0d34cb2b6b20fd9d83d3, type: 3}
+    volume: 1
   _guideClip:
     clip: {fileID: 0}
     volume: 0
