@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 70f2a8ec6d9177842976cee0b853caf6
+guid: 50ac41d2a5cf9474c81e79d5d8ba8a2b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,253 +110,316 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AcrossBodyAttack_SpriteSheet02_0
+      name: Candle_Anim_2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 4006
-        width: 2435.2
-        height: 2003
+        y: 6144
+        width: 2048
+        height: 2048
       alignment: 9
-      pivot: {x: 0.5296, y: 0.03611}
+      pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a720bfedf402fc44b2390c0f3720dc7
-      internalID: -1517509230
+      spriteID: 9670b036ac4f83c458b57990296ef5b3
+      internalID: 1662003212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AcrossBodyAttack_SpriteSheet02_1
+      name: Candle_Anim_2_1
       rect:
         serializedVersion: 2
-        x: 2435
-        y: 4006
-        width: 2435.2
-        height: 2003
+        x: 2048
+        y: 6144
+        width: 2048
+        height: 2048
       alignment: 9
-      pivot: {x: 0.5296, y: 0.03611}
+      pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc2efb7bd87461342b3cba1a80c4bf5d
-      internalID: 1247192427
+      spriteID: fd0793e6992478941b94b564e09e0d3b
+      internalID: -57445543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AcrossBodyAttack_SpriteSheet02_2
+      name: Candle_Anim_2_2
       rect:
         serializedVersion: 2
-        x: 4870
-        y: 4006
-        width: 2435.2
-        height: 2003
+        x: 4096
+        y: 6144
+        width: 2048
+        height: 2048
       alignment: 9
-      pivot: {x: 0.5296, y: 0.03611}
+      pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4c41c9e7bd15ea44b68d0526895631d
-      internalID: -990984500
+      spriteID: 2bda7709b1f148048a274e5ce3389153
+      internalID: 30493391
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AcrossBodyAttack_SpriteSheet02_3
+      name: Candle_Anim_2_3
       rect:
         serializedVersion: 2
-        x: 7305
-        y: 4006
-        width: 2435.2
-        height: 2003
+        x: 6144
+        y: 6144
+        width: 2048
+        height: 2048
       alignment: 9
-      pivot: {x: 0.5296, y: 0.03611}
+      pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7000bc7925a56841a2d70c3b7b3d90a
-      internalID: -743224922
+      spriteID: 2de3cb6f1172e6544bf9eec4899c7d7b
+      internalID: -1640454185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AcrossBodyAttack_SpriteSheet02_4
-      rect:
-        serializedVersion: 2
-        x: 9740
-        y: 4006
-        width: 2435.2
-        height: 2003
-      alignment: 9
-      pivot: {x: 0.5296, y: 0.03611}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3029012726808ef43ac7671cb2f464cf
-      internalID: 521614481
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AcrossBodyAttack_SpriteSheet02_5
+      name: Candle_Anim_2_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 2003
-        width: 2435.2
-        height: 2003
+        y: 4096
+        width: 2048
+        height: 2048
       alignment: 9
-      pivot: {x: 0.5296, y: 0.03611}
+      pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c66a55124da2b646942bc0ac51bf971
-      internalID: -1062365097
+      spriteID: d0059bfd390d7c045993889669406346
+      internalID: 1554348973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AcrossBodyAttack_SpriteSheet02_6
+      name: Candle_Anim_2_5
       rect:
         serializedVersion: 2
-        x: 2435
-        y: 2003
-        width: 2435.2
-        height: 2003
+        x: 2048
+        y: 4096
+        width: 2048
+        height: 2048
       alignment: 9
-      pivot: {x: 0.5296, y: 0.03611}
+      pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 206f941174b600042968ddee33c77dc9
-      internalID: 1490293020
+      spriteID: 12546f56a2ad01f4a902dae366bbb21a
+      internalID: 1079304107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AcrossBodyAttack_SpriteSheet02_7
+      name: Candle_Anim_2_6
       rect:
         serializedVersion: 2
-        x: 4870
-        y: 2003
-        width: 2435.2
-        height: 2003
+        x: 4096
+        y: 4096
+        width: 2048
+        height: 2048
       alignment: 9
-      pivot: {x: 0.5296, y: 0.03611}
+      pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d126aade711f85f4aa5a67a3f17da432
-      internalID: -1566040173
+      spriteID: 9dbb811dcecdca04980bca34806bc7c9
+      internalID: -1789160028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AcrossBodyAttack_SpriteSheet02_8
+      name: Candle_Anim_2_7
       rect:
         serializedVersion: 2
-        x: 7305
-        y: 2003
-        width: 2435.2
-        height: 2003
+        x: 6144
+        y: 4096
+        width: 2048
+        height: 2048
       alignment: 9
-      pivot: {x: 0.5296, y: 0.03611}
+      pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf76daf0dd1b84d489b332f0a0cc25de
-      internalID: 1255027312
+      spriteID: 741702aea29986d4aa107dde6dc396b9
+      internalID: 1983215165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AcrossBodyAttack_SpriteSheet02_9
+      name: Candle_Anim_2_8
       rect:
         serializedVersion: 2
-        x: 9740
-        y: 2003
-        width: 2435.2
-        height: 2003
+        x: 0
+        y: 2048
+        width: 2048
+        height: 2048
       alignment: 9
-      pivot: {x: 0.5296, y: 0.03611}
+      pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1f316a07b03e0d40a60a3bb3a37d410
-      internalID: 2057065882
+      spriteID: 4f65933d9feeeb84e8a06381295cf112
+      internalID: -662324327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AcrossBodyAttack_SpriteSheet02_10
+      name: Candle_Anim_2_9
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 2048
+        height: 2048
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 878520b67c06c96428813dbd2c027268
+      internalID: 326630495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candle_Anim_2_10
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 2048
+        width: 2048
+        height: 2048
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8cf683f9c19bc7428678f499678ffcd
+      internalID: 1995273472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candle_Anim_2_11
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 2048
+        width: 2048
+        height: 2048
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b35a546077b017344a36b82fd8acc206
+      internalID: 1772825297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candle_Anim_2_12
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2435.2
-        height: 2003
+        width: 2048
+        height: 2048
       alignment: 9
-      pivot: {x: 0.5296, y: 0.03611}
+      pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4299fefa609fc1648ba41e788745801f
-      internalID: 397812626
+      spriteID: cd38f396e7e108146b4ac5e7e6d8b1f7
+      internalID: -1822873726
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AcrossBodyAttack_SpriteSheet02_11
+      name: Candle_Anim_2_13
       rect:
         serializedVersion: 2
-        x: 2435
+        x: 2048
         y: 0
-        width: 2435.2
-        height: 2003
+        width: 2048
+        height: 2048
       alignment: 9
-      pivot: {x: 0.5296, y: 0.03611}
+      pivot: {x: 0.5, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64f14672153883f46bc57cc4110409a0
-      internalID: 715325872
+      spriteID: 5c893e7b5d9b9d04282a786d055d1cf5
+      internalID: -1965984162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candle_Anim_2_14
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 0
+        width: 2048
+        height: 2048
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aed323d5a29d294c9a5d3ff92ef3467
+      internalID: -1639759027
       vertices: []
       indices: 
       edges: []
@@ -372,18 +435,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      AcrossBodyAttack_SpriteSheet02_0: -1517509230
-      AcrossBodyAttack_SpriteSheet02_1: 1247192427
-      AcrossBodyAttack_SpriteSheet02_10: 397812626
-      AcrossBodyAttack_SpriteSheet02_11: 715325872
-      AcrossBodyAttack_SpriteSheet02_2: -990984500
-      AcrossBodyAttack_SpriteSheet02_3: -743224922
-      AcrossBodyAttack_SpriteSheet02_4: 521614481
-      AcrossBodyAttack_SpriteSheet02_5: -1062365097
-      AcrossBodyAttack_SpriteSheet02_6: 1490293020
-      AcrossBodyAttack_SpriteSheet02_7: -1566040173
-      AcrossBodyAttack_SpriteSheet02_8: 1255027312
-      AcrossBodyAttack_SpriteSheet02_9: 2057065882
+      Candle_Anim_2_0: 1662003212
+      Candle_Anim_2_1: -57445543
+      Candle_Anim_2_10: 1995273472
+      Candle_Anim_2_11: 1772825297
+      Candle_Anim_2_12: -1822873726
+      Candle_Anim_2_13: -1965984162
+      Candle_Anim_2_14: -1639759027
+      Candle_Anim_2_2: 30493391
+      Candle_Anim_2_3: -1640454185
+      Candle_Anim_2_4: 1554348973
+      Candle_Anim_2_5: 1079304107
+      Candle_Anim_2_6: -1789160028
+      Candle_Anim_2_7: 1983215165
+      Candle_Anim_2_8: -662324327
+      Candle_Anim_2_9: 326630495
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

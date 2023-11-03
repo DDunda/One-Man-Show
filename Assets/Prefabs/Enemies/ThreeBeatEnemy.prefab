@@ -121,8 +121,6 @@ MonoBehaviour:
     percentage: 0.6666667
   - beat: 4.5
     percentage: 1
-  _rightSpawnOffset: {x: 0.1, y: 0.85, z: 0}
-  _forwardSpawnOffset: {x: 0.1, y: 0.85, z: 0}
   _movementAnimation:
     serializedVersion: 2
     m_Curve:
@@ -195,12 +193,9 @@ MonoBehaviour:
   _sprite: {fileID: 1689628252971249323}
   frontOverride: {fileID: 22100000, guid: 8355a80bc3851b046a3f258d552c18ed, type: 2}
   sideOverride: {fileID: 22100000, guid: 7e5967d2e010b664bba231151e5454bc, type: 2}
-  test:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  _forwardSpawnOffset: {x: 0.1, y: 0.85, z: 0}
+  _frontSpawnOffset: {x: 0.1, y: 0.85, z: 0}
+  _sideSpawnOffset: {x: 0.1, y: 0.85, z: 0}
   _tutorialIndicatorPrefab: {fileID: 7074025790841196831, guid: f3d59fc7264317a47857dd2afafcdec5, type: 3}
   _hitClip:
     clip: {fileID: 8300000, guid: c0f71ff8d0fe96842998e208c690cd8e, type: 3}

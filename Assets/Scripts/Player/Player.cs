@@ -29,7 +29,9 @@ public class Player : MonoBehaviour
 			EventManager.EventTrigger(EventType.HEALTH_UI, _currentHealth);
 
 			if (value != 0) return;
-			EventManager.EventUnsubscribe(EventType.BEAT, CheckHealthRegen);
+
+            if (_regenEnabled) EventManager.EventUnsubscribe(EventType.BEAT, CheckHealthRegen);
+
 			EventManager.EventTrigger(EventType.PLAYER_DIED, null);
 
 			Debug.Log("Player died");

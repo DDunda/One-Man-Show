@@ -39,18 +39,17 @@ public class CalibrationManager : MonoBehaviour, GameInput.ICalibrationActions
 		if (_inputActions != null) return;
 		_inputActions = new GameInput();
 		_inputActions.Calibration.SetCallbacks(this);
-		_inputActions.Calibration.Enable();
 	}
 
 	private void OnEnable()
 	{
-		if (_inputActions != null) _inputActions.Enable();
+		if (_inputActions != null) _inputActions.Calibration.Enable();
 	}
 
 	private void OnDisable()
 	{
 		if (_calibrator != null) StopCalibration();
-		if (_inputActions != null) _inputActions.Disable();
+		if (_inputActions != null) _inputActions.Calibration.Disable();
 	}
 
 	public void Start()

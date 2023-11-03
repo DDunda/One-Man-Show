@@ -50,8 +50,8 @@ public class EnemyEditor : Editor
 		Undo.RecordObject(e, "Changed death particle offset");
 		e._spawnOffset = offset;*/
 
-		Vector3 roffset = e.transform.TransformPoint(e._rightSpawnOffset);
-		Vector3 foffset = e.transform.TransformPoint(e._forwardSpawnOffset);
+		Vector3 roffset = e.transform.TransformPoint(e._sideSpawnOffset);
+		Vector3 foffset = e.transform.TransformPoint(e._frontSpawnOffset);
 
 		Handles.DrawLine(roffset + Vector3.up * 0.5f, roffset + Vector3.down * 0.5f);
 		Handles.DrawLine(roffset + Vector3.left * 0.5f, roffset + Vector3.right * 0.5f);

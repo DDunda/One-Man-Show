@@ -27,8 +27,6 @@ public class Enemy : MonoBehaviour
 
 	[Header("Movement")]
 	[SerializeField] private MoveBeat[] _moveBeats;
-	[SerializeField] public Vector3 _rightSpawnOffset = Vector3.zero;
-	[SerializeField] public Vector3 _forwardSpawnOffset = Vector3.zero;
 	[SerializeField] private AnimationCurve _movementAnimation;
 	private Vector3 _startPosition;
 	private Vector3 _endPosition;
@@ -45,6 +43,8 @@ public class Enemy : MonoBehaviour
 	[SerializeField] private SpriteRenderer _sprite;
 	[SerializeField] private AnimatorOverrideController frontOverride;
 	[SerializeField] private AnimatorOverrideController sideOverride;
+	[SerializeField] public Vector3 _frontSpawnOffset = Vector3.zero;
+	[SerializeField] public Vector3 _sideSpawnOffset = Vector3.zero;
 	private Animator _anim;
 
 	[Header("Tutorial")]
@@ -218,11 +218,11 @@ public class Enemy : MonoBehaviour
 		{
 			if(_direction == StageDirection.FORWARD)
 			{
-				Instantiate(_spawnOnDeath, transform.TransformPoint(_forwardSpawnOffset), transform.rotation, null);
+				Instantiate(_spawnOnDeath, transform.TransformPoint(_frontSpawnOffset), transform.rotation, null);
 			}
 			else
 			{
-				Vector3 offset = _rightSpawnOffset;
+				Vector3 offset = _sideSpawnOffset;
 				if (_sprite.flipX) offset.x = -offset.x;
 
 				Instantiate(_spawnOnDeath, transform.TransformPoint(offset), transform.rotation, null);
