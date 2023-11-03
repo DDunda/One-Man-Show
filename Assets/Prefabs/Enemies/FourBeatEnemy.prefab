@@ -204,11 +204,11 @@ MonoBehaviour:
   _sideSpawnOffset: {x: 0.5, y: 1.6, z: 0}
   _tutorialIndicatorPrefab: {fileID: 7074025790841196831, guid: f3d59fc7264317a47857dd2afafcdec5, type: 3}
   _hitClip:
-    clip: {fileID: 8300000, guid: c0f71ff8d0fe96842998e208c690cd8e, type: 3}
+    clip: {fileID: 8300000, guid: cb56678da25f45645b59f82cfe4f6d32, type: 3}
     volume: 0.6
   _deathClip:
-    clip: {fileID: 8300000, guid: 75140d0de7bb0d34cb2b6b20fd9d83d3, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 5eba16dd400a97942afc2341af94f452, type: 3}
+    volume: 0.5
   _guideClip:
     clip: {fileID: 0}
     volume: 0

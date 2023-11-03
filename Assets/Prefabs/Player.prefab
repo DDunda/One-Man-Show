@@ -106,7 +106,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: fb3c0e27bf55f664681d3ffce8793833, type: 3}
     volume: 1
   _regenHealthSFX:
-    clip: {fileID: 8300000, guid: e8b3aed0c7b42294ebe53403f2e9b8b7, type: 3}
+    clip: {fileID: 8300000, guid: 98624e1ac1a856c408572cb8c8a14023, type: 3}
     volume: 1
   _particleParentLeft: {fileID: 1374353732122171142}
   _particleParentForward: {fileID: 2555971017270817448}
