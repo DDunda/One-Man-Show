@@ -59,6 +59,8 @@ public class CalibrationManager : MonoBehaviour, GameInput.ICalibrationActions
 
 	public void OnBeat(InputAction.CallbackContext context)
 	{
+		if (!context.started) return;
+
 		if (_calibrator == null)
 		{
 			StartCalibration();
