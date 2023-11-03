@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
 	[SerializeField] AudioClipData _playerHitSFX;
 	[SerializeField] AudioClipData _parryMissSFX;
 	[SerializeField] AudioClipData _parryHitSFX;
+	[SerializeField] AudioClipData _regenHealthSFX;
 
 	[SerializeField] Transform _particleParentLeft;
 	[SerializeField] Transform _particleParentForward;
@@ -194,6 +195,9 @@ public class Player : MonoBehaviour
 	void RegenHealth()
 	{
 		CurrentHealth = _maxHealth;
+		// Play the regen health audio clip
+        SFXData regenHealthSFXData = new SFXData(_regenHealthSFX, StageDirection.FORWARD); 
+		SendSFXData(regenHealthSFXData);
 	}
 	#endregion
 
