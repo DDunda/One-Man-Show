@@ -74,7 +74,7 @@ public class TrackManager : MonoBehaviour
 		if (_cur_enemies == null) yield break;
 		if (_cur_enemy_beat >= _cur_enemies.Length) yield break;
 
-		for (;;)
+		while (true)
 		{
 			float beat = Conductor.RawSongBeat;
 
@@ -101,7 +101,7 @@ public class TrackManager : MonoBehaviour
 		if (_cur_events == null) yield break;
 		if (_cur_event_beat >= _cur_events.Length) yield break;
 
-		for(;;)
+		while (true)
 		{
 			float beat = Conductor.RawSongBeat;
 
