@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
 
 	private void Start()
 	{
-		RegenHealth();
+		_currentHealth = _maxHealth;
 		CreateSFXData();
 	}
 
@@ -184,6 +184,8 @@ public class Player : MonoBehaviour
 	void CheckHealthRegen(object data)
 	{
 		if (IsDead) return;
+
+		if (_currentHealth == _maxHealth) return;
 
 		if (_currentBeat > _beatsTillRegen + _beatHitOn)
 		{
